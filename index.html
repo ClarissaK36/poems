@@ -9,6 +9,7 @@
     <title>Poems</title>
   </head>
   <body>
+    <div class="container">
     <header>
       <h1>Poems</h1>
     </header>
@@ -20,16 +21,18 @@
           autofocus
           required
           autocomplete="off"
+          class="instructions"
         />
-        <input type="submit" />
+        <input type="submit" class="submit-button" />
 
-        <div>
+        <div class="poem">
           I wandered lonely as a cloud That floats on high o’er vales and hills
           <br />
           When all at once I saw a crowd A host, of golden daffodils
         </div>
       </form>
     </main>
+    
     <footer>
       <p>
         This AI Poem Generator was coded by
@@ -44,6 +47,7 @@
         >
       </p>
     </footer>
+</div>
   </body>
   <script src="src/index.js"></script>
 </html>
