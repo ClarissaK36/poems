@@ -3,10 +3,14 @@ function displayPoem(response) {
   new Typewriter("#poem", {
     strings: [response.data.answer], // Wrap response in an array to avoid errors
     autoStart: true,
-    delay: 55,
+    delay: 100,
     cursor: "",
   });
 }
+
+let poemElement = document.querySelector("#poem");
+poemElement.classList.remove("hidden");
+poemElement.innerHTML= `<div class="blink">⏳</div> Generating a Beautiful Poem about ${instructionsInput.value}`;
 
 function generatePoem(event) {
   event.preventDefault();
