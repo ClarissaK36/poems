@@ -1,16 +1,11 @@
 function displayPoem(response) {
-  console.log("Poem generated");
   new Typewriter("#poem", {
-    strings: [response.data.answer], // Wrap response in an array to avoid errors
+    strings: response.data.answer, // Wrap response in an array to avoid errors
     autoStart: true,
     delay: 100,
     cursor: "",
   });
 }
-
-let poemElement = document.querySelector("#poem");
-poemElement.classList.remove("hidden");
-poemElement.innerHTML= `<div class="blink">⏳</div> Generating a Beautiful Poem about ${instructionsInput.value}`;
 
 function generatePoem(event) {
   event.preventDefault();
@@ -25,11 +20,11 @@ function generatePoem(event) {
     prompt
   )}&context=${encodeURIComponent(context)}&key=${apiKey}`;
 
-  axios.get(apiUrl).then(displayPoem);
+  let poemElement = document.querySelector("#poem");
+  poemElement.classList.remove("hidden");
+  poemElement.innerHTML = `<span class="blink">⏳</span> Generating a Beautiful Poem about ${instructionsInput}`;
 
-  console.log("Generating poem");
-  console.log(`Prompt: ${prompt}`);
-  console.log(`Context: ${context}`);
+  axios.get(apiUrl).then(displayPoem);
 }
 
 let poemFormElement = document.querySelector("#poem-generator-form");
